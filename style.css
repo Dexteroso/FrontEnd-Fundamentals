@@ -31,8 +31,11 @@ General Options
 }
 
 body {
-    margin: 100px 30px 0 30px;
     background-color: var(--bg-color);
+}
+
+main {
+    margin: 100px 30px 0 30px;
 }
 
 h1 {
@@ -62,28 +65,63 @@ header {
     z-index: 1000;
 }
 
-.header-h1 {
+.navbar-header a {
+    font-size: 25px;
+    font-weight: 600;
     color: var(--second-text-color);
+}
+
+.navbar-header span {
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+
+.navbar-header {
     margin-top: 0;
     letter-spacing: -2px;
 }
 
-.header-h1 span {
-    color: var(--main-text-color);
+.navbar-collapse {
+    flex-grow: 0 !important;
+    justify-content: center !important;
+    transition: all .1s ease;
 }
 
-.header-menu ul {
-    /* display: flex;
-    flex-direction: row; */
+.navbar-nav.header-menu {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto !important;
+}
+
+/* .header-menu ul {
     list-style: none;
     margin: 0;
     line-height: 1.5;
     padding: 0;
     display: flex;
     justify-content: center;
+    width: 100%;
     gap: 30px;
     font-size: 15px;
     margin-bottom: 10px;
+} */
+
+.navbar-nav.ms-auto {
+    flex-grow: 0 !important;
+    flex-shrink: 0 !important;
+    width: auto !important;
+    margin-left: auto !important;
+    /* sigue empujando a la derecha */
+}
+
+.header-menu {
+    display: flex;
+    flex-direction: row;
+    flex: 1 1 auto;
+    gap: 5px;
+    font-size: 13px;
 }
 
 .header-menu a {
@@ -94,6 +132,35 @@ header {
     color: var(--main-text-color);
 }
 
+.navbar-default {
+    border: none;
+}
+
+.navbar-nav li a:hover {
+    color: var(--main-text-color) !important;
+    /* background-color: transparent; */
+}
+
+.navbar-nav>.active>a,
+.navbar-nav>.active>a:focus,
+.navbar-nav>.active>a:hover {
+    font-weight: 500;
+    color: var(--main-text-color) !important;
+    background-color: var(--bg-color) !important;
+}
+
+.navbar-right {
+    margin-right: 30px;
+}
+
+.navbar-right li {
+    width: 25px;
+}
+
+.container-fluid {
+    background-color: var(--bg-color);
+    overflow-x: clip !important;
+}
 
 .header-bar {
     display: grid;
@@ -104,8 +171,169 @@ header {
     justify-content: space-evenly;
 }
 
+.search-container {
+    position: relative;
+}
+
+.search-input {
+    display: none;
+    position: absolute;
+    right: 35px;
+    top: 8px;
+    width: 0;
+    opacity: 0;
+    height: 30px;
+    border-radius: 20px;
+    padding: 0 10px;
+    transition: width .1s ease, opacity .3s ease;
+    border: 1px solid var(--shadow-color);
+    z-index: 10;
+}
+
+.search-input.show {
+    display: block;
+    width: 300px;
+    opacity: 1;
+    border-color: var(--shadow-color) !important;
+    box-shadow: none;
+}
+
+.nav-link {
+    padding: 2px !important;
+    font-size: 13px !important;
+    color: var(--second-text-color) !important;
+}
+
+.nav-link2 {
+    padding: 2px !important;
+    font-size: 15px !important;
+    color: var(--second-text-color) !important;
+}
+
+.navbar-nav {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav:not(.header-menu) {
+    flex-direction: row !important;
+    width: auto !important;
+    justify-content: flex-end;
+}
+
+/* Aquí se indica el orden en que se mueven los elementos del nav-bar */
+@media (max-width: 767px) {
+
+    /* Mantener el contenedor principal ordenado correctamente */
+    .navbar .container-fluid {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* 🔥 Orden correcto: Primero hamburguesa, luego logo */
+    .navbar-toggler {
+        order: 0;
+    }
+
+    .navbar-header {
+        order: 1;
+        margin-left: 8px;
+        /* ligero espacio entre ícono y logo */
+    }
+
+    /* Íconos siempre a la derecha */
+    .navbar-nav:not(.header-menu) {
+        order: 2;
+        margin-left: auto !important;
+        flex-direction: row !important;
+    }
+
+    /* Cuando se despliega el menú colapsado, ocupa toda la fila */
+    #navbarContent {
+        width: 100%;
+    }
+}
+
+.navbar-toggler {
+    border: none !important;
+    background: none !important;
+    padding: 0 !important;
+
+}
+
+.navbar-toggler:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Tamaño y color del ícono */
+.navbar-toggler i {
+    font-size: 18px;
+    color: var(--second-text-color);
+}
+
+/* Hover para mejor UX */
+.navbar-toggler:hover i {
+    color: var(--main-text-color);
+    transition: .1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        position: absolute;
+        top: 40px;
+        /* Ajusta a la altura del header */
+        left: 0;
+        width: auto !important;
+        background-color: var(--bg-color);
+        padding: 10px 15px;
+        z-index: 999;
+    }
+
+    .navbar-collapse:not(.show) {
+        display: none;
+    }
+
+    /* Asegurar que los enlaces se apilen verticalmente */
+    .navbar-collapse .navbar-nav {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav:not(.header-menu) {
+        display: flex !important;
+        flex-direction: row !important;
+        width: auto !important;
+        justify-content: flex-end;
+    }
+}
+
+.navbar {
+    background-color: var(--bg-color) !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+html,
+body {
+    overflow-x: hidden !important;
+}
+
+
+/* .search-input.show {
+    display: block;
+    width: 300px;
+    opacity: 1;
+    border-color: var(--shadow-color) !important;
+    box-shadow: none;
+} */
+
 /* row-start, column-start, row-end, column-end */
-.header-bar .header-bar-child:nth-child(1) {
+/* .header-bar .header-bar-child:nth-child(1) {
     grid-area: 1/1/2/2;
     padding: 0 20px;
     text-align: center;
@@ -124,11 +352,15 @@ header {
 .header-bar .header-bar-child:nth-child(4) {
     grid-area: 2/2/2/5;
     padding: 0 20px;
+} */
+
+.navbar-right {
+    flex-direction: row;
 }
 
 .header-nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 }
@@ -139,25 +371,27 @@ header {
     justify-content: center;
 }
 
-#search {
+.search-input {
     width: 400px;
     line-height: 1;
-    border: solid 1px var(--shadow-color);
+    border: solid 0.5px var(--shadow-color);
     border-radius: 10px;
     padding: 5px 15px;
 }
 
-#search::placeholder {
-    color: var(--shadow-color)
+.search-input::placeholder {
+    color: var(--shadow-color);
+    font-size: 12px;
+    padding-left: 10px;
 }
 
-.header-icons i {
-    color: var(--second-text-color);
+.navbar-right i {
+    color: var(--original-price-color);
     font-size: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
-.header-icons i:hover {
+.navbar-right i:hover {
     color: var(--main-text-color);
 }
 
@@ -172,15 +406,27 @@ Hero Placeholder Options
 
 */
 
-.hero {
-    height: 150px;
-    background-color: var(--main-text-color);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: var(--bg-color);
+.carousel-inner {
+    border-radius: 15px;
+}
+
+.carousel-title {
+    color: var(--main-text-color);
     font-size: 30px;
+}
+
+.carousel-text {
+    font-weight: 600;
+    color: var(--bg-color);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
 }
 
 /* 
@@ -193,12 +439,11 @@ Catalog Options
 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 
 */
-
 .catalog {
     display: grid;
-    /* grid-template-rows: repeat(1, auto); */
     grid-template-columns: repeat(12, auto);
     justify-self: center;
+    justify-items: center;
     width: 100%;
     gap: 10px 10px;
 }
@@ -207,45 +452,141 @@ Catalog Options
     margin: 30px;
 }
 
-.product-tag {
-    justify-self: center;
+/* .product-tag {
+  justify-self: center !important;
+  align-self: start !important;
+} */
+
+.formato-contenido {
+    position: relative;
+    overflow: hidden;
+    /* recorta la imagen al hacer scale */
+    border-radius: 15px;
+    /* mismo borde redondeado */
 }
 
-/* row-start, column-start, row-end, column-end */
 .catalog .product-tag:nth-child(1) {
-    grid-area: 1/1/2/13;
+    grid-column: 1 / span 12;
 }
 
 .catalog .product-tag:nth-child(2) {
-    grid-area: 2/1/3/7;
+    grid-column: 1 / span 6;
 }
 
 .catalog .product-tag:nth-child(3) {
-    grid-area: 2/7/3/13;
+    grid-column: 7 / span 6;
 }
 
 .catalog .product-tag:nth-child(4) {
-    grid-area: 3/1/4/5;
+    grid-column: 1 / span 4;
 }
 
 .catalog .product-tag:nth-child(5) {
-    grid-area: 3/5/4/9;
+    grid-column: 5 / span 4;
 }
 
 .catalog .product-tag:nth-child(6) {
-    grid-area: 3/9/4/13;
+    grid-column: 9 / span 4;
 }
 
 .categories-grid {
     display: grid;
-    /* grid-template-rows: repeat(1, auto); */
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    gap: 10px;
     justify-self: center;
-    column-gap: 10px;
+    align-items: stretch;
+}
+
+.category-tag {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .categories h1 {
     margin: 30px;
+}
+
+@media (max-width: 950px) {
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ✅ Tablet y abajo: 2 columnas; el 1º a todo el ancho */
+@media (max-width: 950px) {
+    .catalog {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        /* opcional */
+    }
+
+    /* Anula las posiciones fijas en responsive */
+    .catalog .product-tag {
+        grid-area: auto !important;
+    }
+
+    /* El primer bloque sigue 100% de ancho */
+    .catalog .product-tag:nth-child(1) {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ✅ Móvil: 1 columna (uno debajo del otro) */
+@media (max-width: 576px) {
+    .catalog {
+        grid-template-columns: 1fr;
+    }
+
+    .catalog .product-tag {
+        grid-column: 1 / -1;
+        /* ocupa toda la fila */
+    }
+}
+
+/* Opcional: que la tarjeta se estire al 100% dentro de su celda */
+.product-tag>.formato-contenido {
+    width: 100%;
+}
+
+@media (max-width: 950px) {
+
+    /* Solo al primer card (Set de Recámara) */
+    .catalog .product-tag:nth-child(1) .formato-horizontal {
+        flex-direction: column !important;
+        /* Rompe layout horizontal */
+        height: 450px !important;
+        /* Se ajusta al contenido */
+    }
+
+    /* Ahora la imagen ocupa 100% del ancho */
+    .catalog .product-tag:nth-child(1) .formato-horizontal img {
+        width: 100% !important;
+        height: 45% !important;
+        object-fit: cover;
+    }
+
+    /* Ajusta el texto como los demás */
+    .catalog .product-tag:nth-child(1) .formato-txt {
+        padding: 15px;
+        width: 100%;
+    }
+}
+
+/* ✅ En tablet: el primer card también debe comportarse como grid */
+@media (max-width: 950px) {
+    .catalog .product-tag:nth-child(1) {
+        grid-column: auto !important;
+    }
 }
 
 /* 
@@ -261,22 +602,33 @@ Product Card Options
 
 .formato-horizontal {
     display: flex;
+    flex-direction: row;
     width: 100%;
-    height: 300px;
+    height: 350px;
     overflow: hidden;
     text-align: center;
-    padding: 0 0px;
     border-radius: 20px;
     justify-self: center;
 }
 
 .formato-horizontal img {
-    width: 100%;
-    height: 100%;
+    width: 50% !important;
+    height: 100% !important;
     object-fit: cover;
 }
 
-.formato-contenido {
+.formato-horizontal .formato-txt {
+    width: 50%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    text-align: center;
+
+}
+
+.formato-contenido,
+.product-card {
     margin: 10px;
     border-radius: 20px;
     /* justify-self: center; */
@@ -287,10 +639,46 @@ Product Card Options
     max-width: none;
 }
 
+
+.formato-contenido:not(.formato-horizontal) {
+    width: 100%;
+    height: 450px;
+    /* ✅ establece un tamaño consistente */
+    margin: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 5px 5px 10px #9ca5aa;
+    background-color: var(--second-bg-color);
+    display: flex;
+    /* ✅ permite dividir el espacio entre imagen y texto */
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .formato-contenido {
+        height: 380px;
+        /* ✅ evita tarjetas demasiado altas en móviles */
+    }
+}
+
 .formato-txt {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 20px 30px;
+    font-size: 12px;
+    line-height: 1;
+    background-color: var(--second-bg-color);
+    color: var(--second-text-color);
+}
+
+.formato-txt:not(.formato-horizontal) {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
     align-items: center;
     padding: 20px 30px;
     font-size: 12px;
@@ -319,6 +707,7 @@ h2 {
     margin-bottom: 10px;
     color: var(--main-text-color);
     text-align: center;
+    font-size: 25px;
 }
 
 .formato-txt p {
@@ -374,14 +763,14 @@ Footer Options
 
 footer {
     background-color: var(--main-text-color);
-    display: flex;
-    flex-direction: column;
+    /* display: flex;
+    flex-direction: column; */
     margin-top: 30px;
     padding: 10px;
     font-size: 12px;
 }
 
-.footer_div {
+.footer_menu {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -417,9 +806,9 @@ a:hover {
 }
 
 p.footer_text {
-    margin-top: 10px;
     color: var(--main-text-color2);
     text-align: center;
+    font-size: 10px;
 }
 
 hr {
@@ -427,4 +816,181 @@ hr {
     border: none;
     border-top: 1px solid var(--main-text-color2);
     margin: -5px 0 10px 0;
+}
+
+.footer-grid {
+    display: grid;
+    /* grid-template-rows: repeat(1, auto); */
+    grid-template-columns: repeat(3, auto);
+    justify-self: center;
+    width: 100%;
+    gap: 10px 10px;
+}
+
+.footer-child {
+    justify-self: center;
+}
+
+/* row-start, column-start, row-end, column-end */
+.footer-child:nth-child(1) {
+    grid-area: 1/1/2/2;
+}
+
+.footer-child:nth-child(2) {
+    grid-area: 1/2/2/5;
+}
+
+.footer-child:nth-child(3) {
+    grid-area: 1/5/2/6;
+}
+
+.footer-grid h3 {
+    text-align: center;
+    font-size: 15px;
+}
+
+footer a {
+    font-size: 10px;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: var(--main-text-color2);
+    align-items: center;
+}
+
+.socialmedia i {
+    color: var(--main-text-color2);
+    font-size: 20px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.socialmedia i:hover {
+    color: var(--second-text-color);
+}
+
+.socialmedia {
+    justify-self: center;
+}
+
+.footer-h1 {
+    color: var(--second-text-color);
+}
+
+.footer-h1 span {
+    color: var(--main-text-color2);
+}
+
+.product-img:not(.formato-horizontal) img {
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 50% !important;
+    /* ✅ altura fija para todas las imágenes */
+    object-fit: cover;
+}
+
+.product-img:hover {
+    transform: scale(1.1);
+}
+
+#carousel .carousel-item img {
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    /* applies to all 4 corners */
+}
+
+#carousel .overlay {
+    border-radius: 15px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    opacity: 1 !important;
+}
+
+.product-card {
+    width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 5px 5px 10px var(--shadow-color);
+}
+
+/* 🔥 Asegura que las imágenes también tengan borde redondeado */
+.product-tag .item-img {
+    width: 100%;
+}
+
+/* 🔥 Texto fijo sobre el carousel */
+.formato-txt {
+    text-align: left;
+    padding: 15px;
+}
+
+#carousel .carousel-indicators {
+    top: 150px;
+    z-index: 20;
+}
+
+#myCarousel1 .carousel-indicators,
+#myCarousel2 .carousel-indicators,
+#myCarousel3 .carousel-indicators {
+    top: 300px;
+    z-index: 20;
+}
+
+#carousel .carousel-indicators button,
+#myCarousel1 .carousel-indicators button,
+#myCarousel2 .carousel-indicators button,
+#myCarousel3 .carousel-indicators button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin: 1px;
+    background-color: transparent;
+    border: solid 2px var(--bg-color);
+}
+
+#carousel .carousel-indicators .active,
+#myCarousel1 .carousel-indicators .active,
+#myCarousel2 .carousel-indicators .active,
+#myCarousel3 .carousel-indicators .active {
+    width: 8px;
+    height: 8px;
+    background-color: var(--main-bg-color);
+}
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding: 20px;
+    justify-content: space-evenly;
+}
+
+/* Deja la transición en la imagen */
+.item-img {
+    transition: transform 0.3s ease;
+}
+
+/* Aplica el hover al card (o al .item) y afecta a la imagen */
+.product-card:hover .item-img {
+    transform: scale(1.1);
+}
+
+/* 🔥 Asegura que las imágenes del carousel tengan solo las esquinas superiores redondeadas */
+.product-card .carousel-item img {
+    border-radius: 15px 15px 0 0 !important;
+    /* ⬆️ solo arriba */
+    display: block;
+}
+
+.product-card .carousel-inner {
+    border-radius: 15px 15px 0 0;
+    overflow: hidden;
 }
