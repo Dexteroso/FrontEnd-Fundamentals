@@ -10,7 +10,6 @@ General Options
 
 :root {
     --bg-color: #f8f7f3;
-    --third-bg-color: #ffffff;
     --main-text-color2: #faebd7;
     --main-text-color: #d4af37;
     --second-text-color: #666666;
@@ -18,7 +17,6 @@ General Options
     --second-bg-color: #F1EAD1;
     --button-color: #50c61e;
     --shadow-color: #9ca5aa;
-    --test: #c2c1c1;
     --main-color2: #1397e8;
 }
 
@@ -35,7 +33,9 @@ body {
 }
 
 main {
-    margin: 100px 30px 0 30px;
+    margin-top: 100px;
+    padding: 0 30px;
+    /* overflow-x:hidden; */
 }
 
 h1 {
@@ -57,7 +57,7 @@ Header + Nav menu Pptions
 
 header {
     background-color: var(--bg-color);
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     position: fixed;
     top: 0;
@@ -95,25 +95,11 @@ header {
     margin: 0 auto !important;
 }
 
-/* .header-menu ul {
-    list-style: none;
-    margin: 0;
-    line-height: 1.5;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    gap: 30px;
-    font-size: 15px;
-    margin-bottom: 10px;
-} */
-
 .navbar-nav.ms-auto {
     flex-grow: 0 !important;
     flex-shrink: 0 !important;
     width: auto !important;
     margin-left: auto !important;
-    /* sigue empujando a la derecha */
 }
 
 .header-menu {
@@ -138,7 +124,6 @@ header {
 
 .navbar-nav li a:hover {
     color: var(--main-text-color) !important;
-    /* background-color: transparent; */
 }
 
 .navbar-nav>.active>a,
@@ -165,7 +150,6 @@ header {
 .header-bar {
     display: grid;
     grid-template-rows: repeat(2, auto);
-    /* grid-template-columns: 300px 1fr 100px; */
     grid-template-columns: repeat(3, auto);
     align-items: center;
     justify-content: space-evenly;
@@ -216,22 +200,21 @@ header {
 }
 
 .navbar-nav:not(.header-menu) {
+    display: flex !important;
     flex-direction: row !important;
     width: auto !important;
     justify-content: flex-end;
 }
 
-/* Aquí se indica el orden en que se mueven los elementos del nav-bar */
+/* Aquí se indica a partir de qué tamaño de pantalla se mueven los elementos del nav-bar */
 @media (max-width: 767px) {
 
-    /* Mantener el contenedor principal ordenado correctamente */
     .navbar .container-fluid {
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 
-    /* 🔥 Orden correcto: Primero hamburguesa, luego logo */
     .navbar-toggler {
         order: 0;
     }
@@ -239,17 +222,13 @@ header {
     .navbar-header {
         order: 1;
         margin-left: 8px;
-        /* ligero espacio entre ícono y logo */
     }
 
-    /* Íconos siempre a la derecha */
     .navbar-nav:not(.header-menu) {
         order: 2;
         margin-left: auto !important;
-        flex-direction: row !important;
     }
 
-    /* Cuando se despliega el menú colapsado, ocupa toda la fila */
     #navbarContent {
         width: 100%;
     }
@@ -267,7 +246,6 @@ header {
     box-shadow: none !important;
 }
 
-/* Tamaño y color del ícono */
 .navbar-toggler i {
     font-size: 18px;
     color: var(--second-text-color);
@@ -279,11 +257,10 @@ header {
     transition: .1s ease-in-out;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .navbar-collapse {
         position: absolute;
         top: 40px;
-        /* Ajusta a la altura del header */
         left: 0;
         width: auto !important;
         background-color: var(--bg-color);
@@ -295,20 +272,11 @@ header {
         display: none;
     }
 
-    /* Asegurar que los enlaces se apilen verticalmente */
+    /* Esto es para que los enlaces se apilen verticalmente */
     .navbar-collapse .navbar-nav {
         flex-direction: column !important;
         align-items: flex-start !important;
         gap: 0;
-    }
-}
-
-@media (min-width: 768px) {
-    .navbar-nav:not(.header-menu) {
-        display: flex !important;
-        flex-direction: row !important;
-        width: auto !important;
-        justify-content: flex-end;
     }
 }
 
@@ -322,37 +290,6 @@ html,
 body {
     overflow-x: hidden !important;
 }
-
-
-/* .search-input.show {
-    display: block;
-    width: 300px;
-    opacity: 1;
-    border-color: var(--shadow-color) !important;
-    box-shadow: none;
-} */
-
-/* row-start, column-start, row-end, column-end */
-/* .header-bar .header-bar-child:nth-child(1) {
-    grid-area: 1/1/2/2;
-    padding: 0 20px;
-    text-align: center;
-}
-
-.header-bar .header-bar-child:nth-child(2) {
-    grid-area: 1/2/2/5;
-    padding: 0 20px;
-}
-
-.header-bar .header-bar-child:nth-child(3) {
-    grid-area: 1/5/2/6;
-    padding: 0 20px;
-}
-
-.header-bar .header-bar-child:nth-child(4) {
-    grid-area: 2/2/2/5;
-    padding: 0 20px;
-} */
 
 .navbar-right {
     flex-direction: row;
@@ -388,7 +325,6 @@ body {
 .navbar-right i {
     color: var(--original-price-color);
     font-size: 20px;
-    /* cursor: pointer; */
 }
 
 .navbar-right i:hover {
@@ -405,6 +341,11 @@ Hero Placeholder Options
 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
 
 */
+
+.carousel-hero {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
 
 .carousel-inner {
     border-radius: 15px;
@@ -441,28 +382,40 @@ Catalog Options
 */
 .catalog {
     display: grid;
-    grid-template-columns: repeat(12, auto);
-    justify-self: center;
-    justify-items: center;
+    grid-template-columns: repeat(12, 1fr);
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.catalog,
+.categories-grid {
     width: 100%;
     gap: 10px 10px;
+    justify-self: center;
+    justify-items: center;
+    align-items: stretch;
 }
 
-.our-products h1 {
+.our-products h1,
+.categories h1 {
     margin: 30px;
 }
-
-/* .product-tag {
-  justify-self: center !important;
-  align-self: start !important;
-} */
 
 .formato-contenido {
     position: relative;
     overflow: hidden;
-    /* recorta la imagen al hacer scale */
     border-radius: 15px;
-    /* mismo borde redondeado */
+}
+
+.category-tag {
+    height: auto !important;
+    min-height: unset !important;
+    max-height: none !important;
+    display: flex;
+    flex-direction: column;
 }
 
 .catalog .product-tag:nth-child(1) {
@@ -489,27 +442,6 @@ Catalog Options
     grid-column: 9 / span 4;
 }
 
-.categories-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    gap: 10px;
-    justify-self: center;
-    align-items: stretch;
-}
-
-.category-tag {
-    height: auto !important;
-    min-height: unset !important;
-    max-height: none !important;
-    display: flex;
-    flex-direction: column;
-}
-
-.categories h1 {
-    margin: 30px;
-}
-
 @media (max-width: 950px) {
     .categories-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -522,15 +454,13 @@ Catalog Options
     }
 }
 
-/* ✅ Tablet y abajo: 2 columnas; el 1º a todo el ancho */
 @media (max-width: 950px) {
     .catalog {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
-        /* opcional */
     }
-
-    /* Anula las posiciones fijas en responsive */
+/* 
+    Anula las posiciones fijas en responsive */
     .catalog .product-tag {
         grid-area: auto !important;
     }
@@ -603,7 +533,7 @@ Product Card Options
 .formato-horizontal {
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: 100vw;
     height: 350px;
     overflow: hidden;
     text-align: center;
@@ -629,9 +559,8 @@ Product Card Options
 
 .formato-contenido,
 .product-card {
-    margin: 10px;
+    margin: 0px;
     border-radius: 20px;
-    /* justify-self: center; */
     overflow: hidden;
     box-shadow: 5px 5px 10px #9ca5aa;
     background-color: var(--second-bg-color);
@@ -643,8 +572,6 @@ Product Card Options
 .formato-contenido:not(.formato-horizontal) {
     width: 100%;
     height: 450px;
-    /* ✅ establece un tamaño consistente */
-    margin: 10px;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 5px 5px 10px #9ca5aa;
@@ -654,7 +581,7 @@ Product Card Options
     flex-direction: column;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     .formato-contenido {
         height: 380px;
         /* ✅ evita tarjetas demasiado altas en móviles */
@@ -763,16 +690,22 @@ Footer Options
 
 footer {
     background-color: var(--main-text-color);
-    /* display: flex;
-    flex-direction: column; */
     margin-top: 30px;
     padding: 10px;
     font-size: 12px;
 }
 
+.footer-grid{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+        justify-content: center;
+}
+
 .footer_menu {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 50px;
 }
@@ -818,36 +751,6 @@ hr {
     margin: -5px 0 10px 0;
 }
 
-.footer-grid {
-    display: grid;
-    /* grid-template-rows: repeat(1, auto); */
-    grid-template-columns: repeat(3, auto);
-    justify-self: center;
-    width: 100%;
-    gap: 10px 10px;
-}
-
-.footer-child {
-    justify-self: center;
-}
-
-/* row-start, column-start, row-end, column-end */
-.footer-child:nth-child(1) {
-    grid-area: 1/1/2/2;
-}
-
-.footer-child:nth-child(2) {
-    grid-area: 1/2/2/5;
-}
-
-.footer-child:nth-child(3) {
-    grid-area: 1/5/2/6;
-}
-
-.footer-grid h3 {
-    text-align: center;
-    font-size: 15px;
-}
 
 footer a {
     font-size: 10px;
@@ -882,6 +785,12 @@ footer a {
 
 .footer-h1 span {
     color: var(--main-text-color2);
+}
+
+@media (max-width: 450px) {
+    .footer-h1 {
+        margin-bottom: 20px;
+    }
 }
 
 .product-img:not(.formato-horizontal) img {
