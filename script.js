@@ -7,6 +7,12 @@ function include(file, target) {
 include("header.html", "#header");
 include("footer.html", "#footer");
 
+// normaliza path para que netlify "/" sea igual a "index.html"
+function normalizePath(p){
+  if(p === '/' || p === '' || p === null || p === 'index') return 'index.html';
+  return p.replace(/^\//,''); // quita slash inicial
+}
+
 // 1) Carga de parciales + callback al terminar
 async function loadPartial(targetId, url, onDone) {
   const el = document.getElementById(targetId);
@@ -18,16 +24,16 @@ async function loadPartial(targetId, url, onDone) {
 
 // 2) Función que marca el item activo (nav-link + nav-link2 con href real)
 function setActiveNav() {
-  const current = location.pathname.split('/').pop() || 'index.html';
+
+  const current = normalizePath(location.pathname.split('/').pop());
 
   document.querySelectorAll('#header .nav-item').forEach(li => {
-    const a = li.querySelector('a[href]');    // SOLO los que tienen href
+    const a = li.querySelector('a[href]');
     if (!a) return;
 
-    const linkFile = (a.getAttribute('href') || '').split('/').pop();
-    const active =
-      linkFile === current ||
-      (current === '' && linkFile === 'index.html');
+    const linkFile = normalizePath( (a.getAttribute('href') || '').split('/').pop() );
+
+    const active = linkFile === current;
 
     li.classList.toggle('active', active);
     a.toggleAttribute('aria-current', active);
@@ -36,7 +42,7 @@ function setActiveNav() {
 
 // 3) Cargar header y footer; marcar activo DESPUÉS de inyectar el header
 document.addEventListener('DOMContentLoaded', () => {
-  loadPartial('header', 'header.html', setActiveNav);  // <- callback
+  loadPartial('header', 'header.html', setActiveNav);
   loadPartial('footer', 'footer.html');
 });
 
