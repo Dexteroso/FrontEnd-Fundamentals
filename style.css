@@ -161,25 +161,35 @@ header {
 
 .search-input {
     display: none;
-    position: absolute;
-    right: 35px;
-    top: 8px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 60px;
     width: 0;
     opacity: 0;
     height: 30px;
+    line-height: 1;
     border-radius: 20px;
-    padding: 0 10px;
+    padding: 5px 15px;
     transition: width .1s ease, opacity .3s ease;
+    z-index: 2000;
     border: 1px solid var(--shadow-color);
-    z-index: 10;
+    font-size: 12px;
+    color: #aeaeae !important;
 }
 
 .search-input.show {
     display: block;
-    width: 300px;
+    width: min(700px, calc(100vw - 200px));
     opacity: 1;
-    border-color: var(--shadow-color) !important;
+    border: 1px solid var(--shadow-color);
     box-shadow: none;
+}
+
+.search-input::placeholder {
+    color: var(--shadow-color);
+    font-size: 12px;
+    padding-left: 10px;
 }
 
 .nav-link {
@@ -251,7 +261,6 @@ header {
     color: var(--second-text-color);
 }
 
-/* Hover para mejor UX */
 .navbar-toggler:hover i {
     color: var(--main-text-color);
     transition: .1s ease-in-out;
@@ -300,26 +309,6 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-}
-
-.search-bar {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-}
-
-.search-input {
-    width: 400px;
-    line-height: 1;
-    border: solid 0.5px var(--shadow-color);
-    border-radius: 10px;
-    padding: 5px 15px;
-}
-
-.search-input::placeholder {
-    color: var(--shadow-color);
-    font-size: 12px;
-    padding-left: 10px;
 }
 
 .navbar-right i {
@@ -404,6 +393,10 @@ Catalog Options
     margin: 30px;
 }
 
+.product-tag {
+    width: 100%;
+}
+
 .formato-contenido {
     position: relative;
     overflow: hidden;
@@ -459,7 +452,8 @@ Catalog Options
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
-/* 
+
+    /* 
     Anula las posiciones fijas en responsive */
     .catalog .product-tag {
         grid-area: auto !important;
@@ -598,6 +592,8 @@ Product Card Options
     line-height: 1;
     background-color: var(--second-bg-color);
     color: var(--second-text-color);
+    position: relative;
+    z-index: 3;
 }
 
 .formato-txt:not(.formato-horizontal) {
@@ -695,11 +691,11 @@ footer {
     font-size: 12px;
 }
 
-.footer-grid{
+.footer-grid {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-        justify-content: center;
+    justify-content: center;
 }
 
 .footer_menu {
@@ -794,11 +790,16 @@ footer a {
 }
 
 .product-img:not(.formato-horizontal) img {
-    transition: transform 0.3s ease;
     width: 100%;
     height: 50% !important;
-    /* ✅ altura fija para todas las imágenes */
     object-fit: cover;
+    /* transition: transform 0.3s ease; */
+}
+
+.product-img {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.3s ease;
 }
 
 .product-img:hover {
@@ -810,7 +811,6 @@ footer a {
     width: 100%;
     object-fit: cover;
     border-radius: 15px;
-    /* applies to all 4 corners */
 }
 
 #carousel .overlay {
@@ -823,7 +823,7 @@ footer a {
 }
 
 .product-card {
-    width: 300px;
+    width: 100%;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
@@ -833,6 +833,10 @@ footer a {
 /* 🔥 Asegura que las imágenes también tengan borde redondeado */
 .product-tag .item-img {
     width: 100%;
+}
+
+.item-img {
+    height: 250px;
 }
 
 /* 🔥 Texto fijo sobre el carousel */
@@ -849,7 +853,7 @@ footer a {
 #myCarousel1 .carousel-indicators,
 #myCarousel2 .carousel-indicators,
 #myCarousel3 .carousel-indicators {
-    top: 300px;
+    top: 200px;
     z-index: 20;
 }
 
@@ -902,4 +906,44 @@ footer a {
 .product-card .carousel-inner {
     border-radius: 15px 15px 0 0;
     overflow: hidden;
+}
+
+
+
+/* Login screen */
+
+.subtitle {
+    color: var(--shadow-color);
+    font-size: 14px;
+}
+
+.form-control::placeholder {
+    color: var(--shadow-color);
+    font-size: 14px;
+    font-weight: 200;
+}
+
+.mermas {
+    color: var(--main-color2);
+}
+
+.highlight {
+    color: var(--second-text-color);
+    font-size: 12px;
+}
+
+.highlight:hover {
+    color: var(--main-text-color);
+    font-weight: 400;
+}
+
+.mt-4 {
+    font-size: 12px;
+    color: var(--second-text-color);
+}
+
+.btn-primary{
+    font-size: 12px;
+    background-color: var(--main-text-color);
+    border:  var(--main-text-color);
 }
