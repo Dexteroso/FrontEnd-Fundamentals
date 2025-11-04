@@ -923,10 +923,6 @@ footer a {
     font-weight: 200;
 }
 
-.mermas {
-    color: var(--main-color2);
-}
-
 .highlight {
     color: var(--second-text-color);
     font-size: 12px;
