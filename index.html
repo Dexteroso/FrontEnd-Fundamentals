@@ -4,9 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>login</title>
-    <!-- CSS Link-->
-
+    <title>Inicio</title>
+    <!-- Aquí van los google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
     <!-- Boxicons package to use icons w/o downloading them.  ====  https://v2.boxicons.com/-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
@@ -17,55 +21,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
+    <!-- CSS Link-->
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
-    <!-- <style>
-        .carousel-inner>.item>img {
-            width: 100%;
-            height: auto;
-            max-height: 200px;
-            object-fit: cover;ar */
-        }
-    </style> -->
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-md bg-light">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="#">Tienda de <span>Muebles</span></a>
-                    <!-- <h1 class="header-h1 navbar-brand">Tienda de <span>Muebles</span></h1> -->
-                </div>
-
-                <!-- ✅ Botón Hamburguesa -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class='bx bx-menu'></i>
-                </button>
-
-                <!-- ✅ Contenedor que se colapsa -->
-                <div class="collapse navbar-collapse" id="navbarContent">
-                    <ul class="navbar-nav mb-2 mb-lg-0 header-menu">
-                        <li class="nav-item active"><a class="nav-link" href="index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="02_cocina.html">Cocina</a></li>
-                        <li class="nav-item"><a class="nav-link" href="03_oficina.html">Oficina</a></li>
-                        <li class="nav-item"><a class="nav-link" href="04_jardin.html">Jardín</a></li>
-                        <li class="nav-item"><a class="nav-link" href="05_cochera.html">Cochera</a></li>
-                        <li class="nav-item"><a class="nav-link" href="06_dormitorios.html">Dormitorios</a></li>
-                    </ul>
-                </div>
-                <ul class="navbar-nav">
-                    <li class="nav-item search-container">
-                        <input type="text" class="form-control search-input" placeholder="Buscar...">
-                        <a href="#" class="search-icon nav-link2"><i class='bx bx-search'></i></a>
-                    </li>
-                    <li class="nav-item"><a href="login.html" class="nav-link2"><i class='bx bx-user'></i></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link2"><i class='bx bx-heart'></i></a></li>
-                    <li class="nav-item"><a href="#" class="nav-link2"><i class='bx bx-cart'></i></a></li>
-                </ul>
-        </nav>
-    </header>
+    <div id="header"></div>
     <main>
         <!-- Aquí empieza el carousel de Bootstrap -->
         <div class="container-fluid carousel-hero">
@@ -270,58 +231,8 @@
         </script>
 
     </main>
-    <footer>
-        <div class="footer-grid">
-            <div class="footer-child footer-logo">
-                <h1 class="footer-h1">Tienda de <br><span>Muebles</span></h1>
-            </div>
-            <div class="footer-child">
-                <div class="footer_menu">
-                    <div class="footer_cat">
-                        <h3>Categorías</h3>
-                        <hr>
-                        <ul>
-                            <li><a href="02_cocina.html">Cocina</a></li>
-                            <li><a href="03_oficina.html">Oficina</a></li>
-                            <li><a href="04_jardin.html">Jardín</a></li>
-                            <li><a href="05_cochera.html">Cochera</a></li>
-                            <li><a href="06_dormitorios.html">Dormitorios</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer_cat">
-                        <h3>Nosotros</h3>
-                        <hr>
-                        <ul>
-                            <li><a href="">Nuestra Historia</a></li>
-                            <li><a href="">Misión, Visión, Valores</a></li>
-                            <li><a href="">Carreras</a></li>
-                            <li><a href="">Política de Privacidad</a></li>
-                            <li><a href="">Términos del Servicio</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer_cat">
-                        <h3>Soporte</h3>
-                        <hr>
-                        <ul>
-                            <li><a href="">Preguntas Frecuentes</a></li>
-                            <li><a href="">Ayuda en línea</a></li>
-                            <li><a href="">Confianza y Seguridad</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer_cat">
-                        <h3>Contacto</h3>
-                        <hr>
-                        <ul>
-                            <li><a href="">+52-XX-XXXX-XXXX</a></li>
-                            <li><a href="">servicio@tiendademuebles.com</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br><br>
-        <p class="footer_text">Todos los derechos reservados. Tienda de Muebles.</p>
-    </footer>
+    <div id="footer"></div>
+    <script src="script.js"></script>
 </body>
 
 </html>

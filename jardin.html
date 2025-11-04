@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardín</title>
+    <!-- CSS Link-->
+
+    <!-- Boxicons package to use icons w/o downloading them.  ====  https://v2.boxicons.com/-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Aquí va Bootstrap -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div id="header"></div>
+    <main>
+<h2>Aquí van los muebles del jardín</h2>
+
+
+        <script>
+            document.addEventListener('click', function (e) {
+                // 1) Toggle al hacer clic en el icono
+                const icon = e.target.closest('.search-icon');
+                if (icon) {
+                    e.preventDefault();
+                    const container = icon.closest('.search-container');
+                    const input = container.querySelector('.search-input');
+                    input.classList.toggle('show');
+                    if (input.classList.contains('show')) input.focus();
+                    return; // no cerrar inmediatamente
+                }
+
+                // 2) Clic fuera -> cerrar
+                if (!e.target.closest('.search-container')) {
+                    document.querySelectorAll('.search-input.show').forEach(el => el.classList.remove('show'));
+                }
+            });
+        </script>
+    </main>
+<div id="footer"></div>
+<script src="script.js"></script>
+</body>
+</html>
