@@ -36,13 +36,16 @@ body {
 main {
     margin-top: 100px;
     padding: 0 30px;
-    /* overflow-x:hidden; */
 }
 
 h1 {
     text-align: center;
     color: var(--second-text-color);
     margin: 30px 0 0 0;
+}
+
+html {
+    overflow-y: scroll;
 }
 
 /* 
@@ -66,6 +69,11 @@ header {
     z-index: 1000;
 }
 
+header,
+header * {
+    font-family: "Montserrat", sans-serif !important;
+}
+
 .navbar-header a {
     font-size: 25px;
     font-weight: 600;
@@ -80,7 +88,7 @@ header {
 
 .navbar-header {
     margin-top: 0;
-    letter-spacing: -2px;
+    letter-spacing: -3px;
 }
 
 .navbar-collapse {
@@ -123,41 +131,22 @@ header {
     border: none;
 }
 
-/* .navbar-nav li a:hover {
-    color: var(--main-text-color) !important;
-} 
-
-.navbar-nav>.active>a,
-.navbar-nav>.active>a:focus,
-.navbar-nav>.active>a:hover {
+.header-menu .nav-item .nav-link {
+    padding: 6px 10px;
+    border-bottom: 2px solid transparent;
     font-weight: 500;
-    color: var(--main-text-color) !important;
-    background-color: var(--bg-color) !important;
-} */
-
-.header-menu li.active a{
-    font-weight:700;
-    color: var(--main-text-color) !important;
-    border-bottom: 2px solid var(--main-text-color);
-}
-
-.header-menu .nav-item .nav-link,
-.header-menu .nav-item .nav-link2 {
-  padding: 6px 10px;
-  border-bottom: 2px solid transparent;
-  white-space: nowrap;
 }
 
 .header-menu .nav-item.active .nav-link {
-  color: var(--main-text-color) !important;
-  border-bottom-color: var(--main-text-color);
-  font-weight: 600;
+    font-weight: 700;
+    border-bottom-color: var(--main-text-color);
+    color: var(--main-text-color) !important;
 }
 
 .navbar-nav .nav-item.active .nav-link2 {
-  color: var(--main-text-color) !important;
-  border-bottom-color: var(--main-text-color);
-  font-weight: 800;
+    color: var(--main-text-color) !important;
+    border-bottom-color: var(--main-text-color);
+    font-weight: 800;
 }
 
 .navbar-right {
@@ -307,7 +296,6 @@ header {
         display: none;
     }
 
-    /* Esto es para que los enlaces se apilen verticalmente */
     .navbar-collapse .navbar-nav {
         flex-direction: column !important;
         align-items: flex-start !important;
@@ -479,19 +467,15 @@ Catalog Options
         gap: 16px;
     }
 
-    /* 
-    Anula las posiciones fijas en responsive */
     .catalog .product-tag {
         grid-area: auto !important;
     }
 
-    /* El primer bloque sigue 100% de ancho */
     .catalog .product-tag:nth-child(1) {
         grid-column: 1 / -1;
     }
 }
 
-/* ✅ Móvil: 1 columna (uno debajo del otro) */
 @media (max-width: 576px) {
     .catalog {
         grid-template-columns: 1fr;
@@ -499,40 +483,31 @@ Catalog Options
 
     .catalog .product-tag {
         grid-column: 1 / -1;
-        /* ocupa toda la fila */
     }
 }
 
-/* Opcional: que la tarjeta se estire al 100% dentro de su celda */
 .product-tag>.formato-contenido {
     width: 100%;
 }
 
 @media (max-width: 950px) {
-
-    /* Solo al primer card (Set de Recámara) */
     .catalog .product-tag:nth-child(1) .formato-horizontal {
         flex-direction: column !important;
-        /* Rompe layout horizontal */
         height: 450px !important;
-        /* Se ajusta al contenido */
     }
 
-    /* Ahora la imagen ocupa 100% del ancho */
     .catalog .product-tag:nth-child(1) .formato-horizontal img {
         width: 100% !important;
         height: 45% !important;
         object-fit: cover;
     }
 
-    /* Ajusta el texto como los demás */
     .catalog .product-tag:nth-child(1) .formato-txt {
         padding: 15px;
         width: 100%;
     }
 }
 
-/* ✅ En tablet: el primer card también debe comportarse como grid */
 @media (max-width: 950px) {
     .catalog .product-tag:nth-child(1) {
         grid-column: auto !important;
@@ -553,7 +528,7 @@ Product Card Options
 .formato-horizontal {
     display: flex;
     flex-direction: row;
-    width: 100vw;
+    width: 100%;
     height: 350px;
     overflow: hidden;
     text-align: center;
@@ -597,14 +572,12 @@ Product Card Options
     box-shadow: 5px 5px 10px #9ca5aa;
     background-color: var(--second-bg-color);
     display: flex;
-    /* ✅ permite dividir el espacio entre imagen y texto */
     flex-direction: column;
 }
 
 @media (max-width: 767px) {
     .formato-contenido {
         height: 380px;
-        /* ✅ evita tarjetas demasiado altas en móviles */
     }
 }
 
@@ -634,9 +607,6 @@ Product Card Options
     line-height: 1;
     background-color: var(--second-bg-color);
     color: var(--second-text-color);
-
-    /* min-width: 350px;
-    max-width: none; */
 }
 
 .formato-txt label {
@@ -746,6 +716,7 @@ ul {
 }
 
 h3 {
+    font-size: 18px;
     margin: 10px;
     color: var(--main-text-color2);
 }
@@ -772,7 +743,6 @@ hr {
     border-top: 1px solid var(--main-text-color2);
     margin: -5px 0 10px 0;
 }
-
 
 footer a {
     font-size: 10px;
@@ -801,11 +771,22 @@ footer a {
     justify-self: center;
 }
 
+.footer-logo {
+    letter-spacing: -3px;
+    margin: 20px;
+}
+
 .footer-h1 {
+    font-size: 25px;
+    font-weight: 600;
     color: var(--second-text-color);
+    line-height: .8;
+
 }
 
 .footer-h1 span {
+    font-size: 25px;
+    font-weight: 600;
     color: var(--main-text-color2);
 }
 
@@ -819,7 +800,6 @@ footer a {
     width: 100%;
     height: 50% !important;
     object-fit: cover;
-    /* transition: transform 0.3s ease; */
 }
 
 .product-img {
@@ -845,7 +825,14 @@ footer a {
 
 .carousel-control-prev,
 .carousel-control-next {
-    opacity: 1 !important;
+  background: none !important;
+  border: none !important;
+  opacity: 1 !important;
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background: none !important;
 }
 
 .product-card {
@@ -856,7 +843,6 @@ footer a {
     box-shadow: 5px 5px 10px var(--shadow-color);
 }
 
-/* 🔥 Asegura que las imágenes también tengan borde redondeado */
 .product-tag .item-img {
     width: 100%;
 }
@@ -865,7 +851,6 @@ footer a {
     height: 250px;
 }
 
-/* 🔥 Texto fijo sobre el carousel */
 .formato-txt {
     text-align: left;
     padding: 15px;
@@ -874,6 +859,10 @@ footer a {
 #carousel .carousel-indicators {
     top: 150px;
 }
+
+
+/* Aquí van los estilos de las tarjetas de producto de las páginas adicionales */
+
 
 #myCarousel1 .carousel-indicators,
 #myCarousel2 .carousel-indicators,
@@ -905,22 +894,54 @@ footer a {
 .card-container {
     display: flex;
     flex-direction: row;
-    gap: 20px;
-    padding: 20px;
+    gap: 10px;
     justify-content: space-evenly;
 }
 
-/* Deja la transición en la imagen */
+#myCarousel1,
+#myCarousel2,
+#myCarousel3 {
+    max-width: 30%;
+}
+
+@media ((max-width: 950px)) {
+    .card-container {
+        flex-wrap: wrap;
+    }
+
+    #myCarousel1,
+    #myCarousel2,
+    #myCarousel3 {
+        max-width: 45%;
+    }
+}
+
+@media ((max-width: 767px)) {
+
+    #myCarousel1,
+    #myCarousel2,
+    #myCarousel3 {
+        max-width: 100%;
+    }
+}
+
+@media ((max-width: 450px)) {
+
+    #myCarousel1,
+    #myCarousel2,
+    #myCarousel3 {
+        max-width: 100%;
+    }
+}
+
 .item-img {
     transition: transform 0.3s ease;
 }
 
-/* Aplica el hover al card (o al .item) y afecta a la imagen */
 .product-card:hover .item-img {
     transform: scale(1.1);
 }
 
-/* 🔥 Asegura que las imágenes del carousel tengan solo las esquinas superiores redondeadas */
 .product-card .carousel-item img {
     border-radius: 15px 15px 0 0 !important;
     display: block;
@@ -933,7 +954,13 @@ footer a {
 
 
 
-/* Login screen */
+/* Login screen 
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
+*/
 
 .subtitle {
     color: var(--shadow-color);
@@ -961,8 +988,128 @@ footer a {
     color: var(--second-text-color);
 }
 
-.btn-primary{
+.btn-primary {
     font-size: 12px;
     background-color: var(--main-text-color);
-    border:  var(--main-text-color);
+    border: var(--main-text-color);
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.1);
+    background-color: var(--second-text-color);
+
+}
+
+.subscribe {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--main-text-color2);
+    background-color: var(--second-text-color);
+    padding: 5px 15px;
+    transition: transform 0.3s ease;
+}
+
+.subscribe:hover{
+    transform: scale(1.1);
+    background-color: var(--second-text-color);
+}
+
+.modal-body span {
+    color: var(--second-text-color);
+    font-weight: 800;
+    font-size: 25px;
+}
+
+.modal-format {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 550px;
+    top: 10%;
+    left: 0%;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.modal-img {
+    width: 45%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-content {
+    width: 55%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0 !important;
+    border: none !important;
+}
+
+.modal-dialog {
+    max-width: 900px;
+    width: 90vw;/
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.modal-header {
+    justify-content: center !important;
+    text-align: center;
+}
+
+.modal-header h1 {
+    width: 100%;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .modal-format {
+        flex-direction: column !important;
+        height: auto;
+    }
+
+    .modal-content {
+        width: 100% !important;
+        height: auto !important;
+        border-radius: 0 0 20px 20px;
+        padding: 20px;
+        /* ↓ reduce */
+    }
+
+    .modal-img {
+        width: 100% !important;
+        height: 180px !important;
+        /* ↓ reduce */
+        border-radius: 20px 20px 0 0;
+    }
+
+    .modal-header h1 {
+        font-size: 22px;
+        /* ↓ reduce */
+        line-height: 1.2;
+    }
+
+    .modal-body h2 {
+        font-size: 16px;
+        /* ↓ reduce */
+        line-height: 1.3;
+    }
+
+    .modal-body span {
+        font-size: 20px;
+        /* ↓ reduce */
+    }
+
+    .modal-footer button {
+        font-size: 14px;
+        /* ↓ reduce */
+        padding: 5px 12px;
+    }
 }

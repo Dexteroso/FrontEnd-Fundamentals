@@ -9,11 +9,11 @@
                     <h3>Categorías</h3>
                     <hr>
                     <ul>
-                        <li><a href="02_cocina.html">Cocina</a></li>
-                        <li><a href="03_oficina.html">Oficina</a></li>
-                        <li><a href="04_jardin.html">Jardín</a></li>
-                        <li><a href="05_cochera.html">Cochera</a></li>
-                        <li><a href="06_dormitorios.html">Dormitorios</a></li>
+                        <li><a href="cocina.html">Cocina</a></li>
+                        <li><a href="oficina.html">Oficina</a></li>
+                        <li><a href="jardin.html">Jardín</a></li>
+                        <li><a href="cochera.html">Cochera</a></li>
+                        <li><a href="dormitorio.html">Dormitorio</a></li>
                     </ul>
                 </div>
                 <div class="footer_cat">
@@ -42,7 +42,11 @@
                     <ul>
                         <li><a href="">+52-XX-XXXX-XXXX</a></li>
                         <li><a href="">servicio@tiendademuebles.com</a></li>
+                        <br>
+                        <li><a href=""> Suscríbete a nuestro newsletter</a></li>
                     </ul>
+                    <button type="button" class="btn btn-primary subscribe" data-bs-toggle="modal"
+                        data-bs-target="#subscribe">Suscríbete</button>
                 </div>
             </div>
         </div>
@@ -50,3 +54,36 @@
     <br><br>
     <p class="footer_text">Todos los derechos reservados. Tienda de Muebles.</p>
 </footer>
+<div class="modal fade" id="subscribe" tabindex="-1">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-format">
+        <img class="modal-img" src="Images/categoria1.jpg" alt="">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1>Suscríbete a nuestro newsletter</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <h2>Al suscribirte recibes un cupón de <br><span>10% de descuento</span><br>en tu primera compra.</h2>
+            </div>
+            <div class="form-group mb-3 d-flex justify-content-center">
+                <input type="text" class="form-control" placeholder="Nombre Completo"
+                    style="max-width: 400px; width: 100%;">
+            </div>
+            <div class="form-group mb-3 d-flex justify-content-center">
+                <input type="email" class="form-control" placeholder="Correo electrónico"
+                    style="max-width: 400px; width: 100%;">
+            </div>
+            <div class="form-group mb-3 d-flex justify-content-center">
+                <input type="phone" class="form-control" placeholder="XX-XXXX-XXXX"
+                    style="max-width: 400px; width: 100%;">
+            </div>
+            <br>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

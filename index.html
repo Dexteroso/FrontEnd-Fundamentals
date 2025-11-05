@@ -61,6 +61,16 @@
                             <p class="carousel-text">Productividad y elegancia en equilibrio.</p>
                         </div>
                     </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                        <span class="visually-hidden">Previo</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                        <span class="visually-hidden">Siguiente</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -127,10 +137,10 @@
                         <img class="product-img" src="Images/producto4.jpg" alt="Producto1" width="300px"
                             height="200px">
                         <div class="formato-txt">
-                            <H2>Sala Roma de Suede</H2>
-                            <p class="fixed-txt">La Roma Sala 3-2-1, tapizada con los mejores materiales, muy suave al
-                                tacto, consta de un
-                                sofá, un love seat para dos personas y un sillón muy cómodo, combina firmeza y suavidad
+                            <H2>Sala Roma Suede</H2>
+                            <p class="fixed-txt">Tapizada con los mejores materiales, muy suave al
+                                tacto, consta de un sofá, un love seat para dos personas y un sillón muy cómodo, firmeza
+                                y suavidad
                                 en una sola pieza.</p>
                             <label for="price"><span class="original-price">$35,999<sup
                                         class="initial-cents">.00</sup></span> $17,999<sup
@@ -181,35 +191,41 @@
             <h1>Categorías de los Productos</h1>
             <div class="categories-grid">
                 <div class="product-tag">
-                    <div class="formato-contenido category-tag">
-                        <img class="product-img" src="Images/categoria1.jpg" alt="categoria1" width="300px"
-                            height="200px">
-                        <div class="formato-txt">
-                            <H2>Oficina</H2>
+                    <a href="oficina.html" class="category-link">
+                        <div class="formato-contenido category-tag">
+                            <img class="product-img" src="Images/categoria1.jpg" alt="categoria1" width="300px"
+                                height="200px">
+                            <div class="formato-txt">
+                                <H2>Oficina</H2>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product-tag">
-                    <div class="formato-contenido category-tag">
-                        <img class="product-img" src="Images/categoria2.jpg" alt="categoria2" width="300px"
-                            height="200px">
-                        <div class="formato-txt">
-                            <H2>Hogar</H2>
+                    <a href="jardin.html" class="category-link">
+                        <div class="formato-contenido category-tag">
+                            <img class="product-img" src="Images/jardín/ilios/1178436933_2p.avif" alt="categoria2"
+                                width="300px" height="200px">
+                            <div class="formato-txt">
+                                <H2>Jardín</H2>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
                 <div class="product-tag">
-                    <div class="formato-contenido category-tag">
-                        <img class="product-img" src="Images/categoria3.jpg" alt="categoria3" width="auto"
-                            height="200px">
-                        <div class="formato-txt">
-                            <H2>Cocina</H2>
+                    <a href="cocina.html" class="category-link">
+                        <div class="formato-contenido category-tag">
+                            <img class="product-img" src="Images/categoria3.jpg" alt="categoria3" width="auto"
+                                height="200px">
+                            <div class="formato-txt">
+                                <H2>Cocina</H2>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </div>
+
             </div>
         </section>
-
         <script>
             document.addEventListener('click', function (e) {
                 // 1) Toggle al hacer clic en el icono
@@ -229,7 +245,6 @@
                 }
             });
         </script>
-
     </main>
     <div id="footer"></div>
     <script src="script.js"></script>
