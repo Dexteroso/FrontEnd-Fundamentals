@@ -259,6 +259,20 @@ header * {
     }
 }
 
+@media (max-width: 402px){
+    .navbar-header a {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--second-text-color);
+}
+
+.navbar-header span {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+}
+
 .navbar-toggler {
     border: none !important;
     background: none !important;
