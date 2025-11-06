@@ -259,18 +259,18 @@ header * {
     }
 }
 
-@media (max-width: 402px){
+@media (max-width: 402px) {
     .navbar-header a {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--second-text-color);
-}
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--second-text-color);
+    }
 
-.navbar-header span {
-    font-size: 20px;
-    font-weight: 600;
-    color: var(--main-text-color);
-}
+    .navbar-header span {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--main-text-color);
+    }
 }
 
 .navbar-toggler {
@@ -839,14 +839,14 @@ footer a {
 
 .carousel-control-prev,
 .carousel-control-next {
-  background: none !important;
-  border: none !important;
-  opacity: 1 !important;
+    background: none !important;
+    border: none !important;
+    opacity: 1 !important;
 }
 
 .carousel-control-prev:hover,
 .carousel-control-next:hover {
-  background: none !important;
+    background: none !important;
 }
 
 .product-card {
@@ -1006,11 +1006,11 @@ footer a {
     font-size: 12px;
     background-color: var(--main-text-color);
     border: var(--main-text-color);
-    transition: transform 0.3s ease;
+    /* transition: transform 0.3s ease; */
 }
 
 .btn-primary:hover {
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
     background-color: var(--second-text-color);
 
 }
@@ -1020,15 +1020,13 @@ footer a {
     font-weight: 600;
     color: var(--main-text-color2);
     background-color: var(--second-text-color);
-    padding: 5px 15px;
-    transition: transform 0.3s ease;
+    padding: 3px 15px;
+    /* transition: transform 0.3s ease; */
 }
 
 .subscribe:hover{
-    transform: scale(1.1);
-    background-color: var(--second-text-color);
+    background-color: #083d5d;
 }
-
 .modal-body span {
     color: var(--second-text-color);
     font-weight: 800;
@@ -1128,13 +1126,13 @@ footer a {
     }
 }
 
-.title{
+.title {
     font-size: 25px;
     color: var(--main-text-color);
     margin: 0 10px 0 0;
 }
 
-.subtitle{
+.subtitle {
     font-size: 15px;
     color: var(--second-text-color);
     margin-top: 0;
