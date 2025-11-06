@@ -25,12 +25,18 @@ General Options
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: "Montserrat", sans-serif;
+    font-family: "Raleway", sans-serif;
     font-weight: 500;
+}
+
+html {
+    overflow-y: scroll;
+    font-size: 62.5%;
 }
 
 body {
     background-color: var(--bg-color);
+    font-size: 1.6rem;
 }
 
 main {
@@ -42,10 +48,8 @@ h1 {
     text-align: center;
     color: var(--second-text-color);
     margin: 30px 0 0 0;
-}
-
-html {
-    overflow-y: scroll;
+    font-family: "Montserrat", serif; /* Aquí igual si pidió el tipo de letra Playfair pero decidí cambiarlo por Montserrat*/
+    font-size: 5rem;
 }
 
 /* 
@@ -75,7 +79,7 @@ header * {
 }
 
 .navbar-header a {
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 600;
     color: var(--second-text-color);
 }
@@ -116,7 +120,7 @@ header * {
     flex-direction: row;
     flex: 1 1 auto;
     gap: 5px;
-    font-size: 13px;
+    font-size: 1.3rem;
 }
 
 .header-menu a {
@@ -185,11 +189,11 @@ header * {
     height: 30px;
     line-height: 1;
     border-radius: 20px;
-    padding: 5px 15px;
+    padding: 5px 15px 5px 25px;
     transition: width .1s ease, opacity .3s ease;
     z-index: 2000;
     border: 1px solid var(--shadow-color);
-    font-size: 12px;
+    font-size: 1.2rem;
     color: #aeaeae !important;
 }
 
@@ -203,19 +207,22 @@ header * {
 
 .search-input::placeholder {
     color: var(--shadow-color);
-    font-size: 12px;
-    padding-left: 10px;
+    font-size: 1.2rem;
+}
+
+.search-input {
+    caret-color: transparent;
 }
 
 .nav-link {
     padding: 2px !important;
-    font-size: 13px !important;
+    font-size: 1.3rem !important;
     color: var(--second-text-color) !important;
 }
 
 .nav-link2 {
     padding: 2px !important;
-    font-size: 18px !important;
+    font-size: 1.8rem !important;
     color: var(--second-text-color) !important;
 }
 
@@ -261,13 +268,13 @@ header * {
 
 @media (max-width: 402px) {
     .navbar-header a {
-        font-size: 20px;
+        font-size: 2rem;
         font-weight: 600;
         color: var(--second-text-color);
     }
 
     .navbar-header span {
-        font-size: 20px;
+        font-size: 2rem;
         font-weight: 600;
         color: var(--main-text-color);
     }
@@ -286,7 +293,7 @@ header * {
 }
 
 .navbar-toggler i {
-    font-size: 18px;
+    font-size: 1.8rem;
     color: var(--second-text-color);
 }
 
@@ -341,7 +348,7 @@ body {
 
 .navbar-right i {
     color: var(--original-price-color);
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 .navbar-right i:hover {
@@ -370,7 +377,7 @@ Hero Placeholder Options
 
 .carousel-title {
     color: var(--main-text-color);
-    font-size: 30px;
+    font-size: 3rem;
 }
 
 .carousel-text {
@@ -601,7 +608,7 @@ Product Card Options
     justify-content: center;
     align-items: center;
     padding: 20px 30px;
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 1;
     background-color: var(--second-bg-color);
     color: var(--second-text-color);
@@ -617,8 +624,8 @@ Product Card Options
     text-align: center;
     align-items: center;
     padding: 20px 30px;
-    font-size: 12px;
-    line-height: 1;
+    font-size: 1.2rem;
+    line-height: .9;
     background-color: var(--second-bg-color);
     color: var(--second-text-color);
 }
@@ -629,18 +636,20 @@ Product Card Options
 }
 
 .initial-cents {
-    font-size: 10px;
+    font-size: 1rem;
 }
 
 .final-cents {
-    font-size: 15px;
+    font-size: 1.5rem;
 }
 
 h2 {
     margin-bottom: 10px;
     color: var(--main-text-color);
     text-align: center;
-    font-size: 25px;
+    font-size: 3rem;
+    /* En Lapzo se piden 4rem pero se me hacía muy grande y lo dejé en 3rem */
+
 }
 
 .formato-txt p {
@@ -650,7 +659,7 @@ h2 {
 
 label {
     margin-top: 10px;
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 800;
     color: var(--main-text-color);
 }
@@ -676,7 +685,7 @@ button:hover {
 }
 
 .original-price {
-    font-size: 12px;
+    font-size: 1.2rem;
     font-weight: 500;
     font-style: italic;
     color: var(--original-price-color);
@@ -698,7 +707,7 @@ footer {
     background-color: var(--main-text-color);
     margin-top: 30px;
     padding: 10px;
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .footer-grid {
@@ -730,7 +739,7 @@ ul {
 }
 
 h3 {
-    font-size: 18px;
+    font-size: 1.8rem;
     margin: 10px;
     color: var(--main-text-color2);
 }
@@ -748,7 +757,7 @@ a:hover {
 p.footer_text {
     color: var(--main-text-color2);
     text-align: center;
-    font-size: 10px;
+    font-size: 1rem;
 }
 
 hr {
@@ -759,7 +768,7 @@ hr {
 }
 
 footer a {
-    font-size: 10px;
+    font-size: 1rem;
 }
 
 .contact {
@@ -772,7 +781,7 @@ footer a {
 
 .socialmedia i {
     color: var(--main-text-color2);
-    font-size: 20px;
+    font-size: 2rem;
     cursor: pointer;
     margin: 5px;
 }
@@ -791,7 +800,7 @@ footer a {
 }
 
 .footer-h1 {
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 600;
     color: var(--second-text-color);
     line-height: .8;
@@ -799,7 +808,7 @@ footer a {
 }
 
 .footer-h1 span {
-    font-size: 25px;
+    font-size: 2.5rem;
     font-weight: 600;
     color: var(--main-text-color2);
 }
@@ -871,7 +880,7 @@ footer a {
 }
 
 #carousel .carousel-indicators {
-    top: 150px;
+    top: 170px;
 }
 
 
@@ -978,18 +987,18 @@ footer a {
 
 .subtitle {
     color: var(--shadow-color);
-    font-size: 14px;
+    font-size: 1.4rem;
 }
 
 .form-control::placeholder {
     color: var(--shadow-color);
-    font-size: 14px;
+    font-size: 1.3rem;
     font-weight: 200;
 }
 
 .highlight {
     color: var(--second-text-color);
-    font-size: 12px;
+    font-size: 1.2rem;
 }
 
 .highlight:hover {
@@ -1006,13 +1015,35 @@ footer a {
     font-size: 12px;
     background-color: var(--main-text-color);
     border: var(--main-text-color);
-    /* transition: transform 0.3s ease; */
+}
+
+.btn-secondary {
+    font-size: 12px;
+    background-color: var(--second-text-color);
+    border: var(--second-text-color);
 }
 
 .btn-primary:hover {
-    /* transform: scale(1.1); */
     background-color: var(--second-text-color);
 
+}
+
+.newsletter {
+    text-align: center;
+}
+
+.newsletter p {
+    font-size: 13px;
+    color: var(--second-bg-color);
+    margin-bottom: 0;
+}
+
+.newsletter-hr {
+    width: 90%;
+    border: none;
+    border-top: 1px solid var(--main-text-color2);
+    margin: 5px auto 10px auto;
+    display: block;
 }
 
 .subscribe {
@@ -1024,9 +1055,10 @@ footer a {
     /* transition: transform 0.3s ease; */
 }
 
-.subscribe:hover{
+.subscribe:hover {
     background-color: #083d5d;
 }
+
 .modal-body span {
     color: var(--second-text-color);
     font-weight: 800;
@@ -1081,6 +1113,15 @@ footer a {
     text-align: center;
 }
 
+.modal-body h2 {
+    margin-top: 2rem;
+    font-size: 2.5rem;
+}
+
+.modal-body span {
+    font-size: 4rem;
+}
+
 @media (max-width: 768px) {
     .modal-format {
         flex-direction: column !important;
@@ -1092,48 +1133,42 @@ footer a {
         height: auto !important;
         border-radius: 0 0 20px 20px;
         padding: 20px;
-        /* ↓ reduce */
     }
 
     .modal-img {
         width: 100% !important;
         height: 180px !important;
-        /* ↓ reduce */
         border-radius: 20px 20px 0 0;
     }
 
     .modal-header h1 {
-        font-size: 22px;
-        /* ↓ reduce */
+        font-size: 3rem;
         line-height: 1.2;
     }
 
     .modal-body h2 {
-        font-size: 16px;
-        /* ↓ reduce */
+        font-size: 2rem;
         line-height: 1.3;
     }
 
     .modal-body span {
-        font-size: 20px;
-        /* ↓ reduce */
+        font-size: 3rem;
     }
 
     .modal-footer button {
-        font-size: 14px;
-        /* ↓ reduce */
+        font-size: 1.2rem;
         padding: 5px 12px;
     }
 }
 
 .title {
-    font-size: 25px;
+    font-size: 2.5rem;
     color: var(--main-text-color);
     margin: 0 10px 0 0;
 }
 
 .subtitle {
-    font-size: 15px;
+    font-size: 1.5rem;
     color: var(--second-text-color);
     margin-top: 0;
     margin-bottom: 30px;
